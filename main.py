@@ -5,7 +5,7 @@ from supabase import create_client, Client #pip install streamlit supabase
 
 # Supabase 연결
 url = st.secrets["supabase"]["url"]
-key = st.secrets["supabase"]["key"]
+key = st.secrets["supabase"]["service_key"]
 supabase: Client = create_client(url, key)
 
 
