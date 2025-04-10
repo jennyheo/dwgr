@@ -12,26 +12,24 @@ supabase: Client = create_client(url, key)
 st.subheader("🚌 동원훈련 수송버스 정보 검색", divider=True) 
 
 # 사용자 입력
-name = st.text_input("이름을 입력하세요")
-phone = st.text_input("전화번호 뒷번호 네자리를 입력하세요: ex)1234")
+name = st.text_input("이름을 입력하세요").strip()
+phone = st.text_input("전화번호 뒷번호 네자리를 입력하세요 ex)1234",  max_chars=4).strip()
 
 # 검색 버튼
-if st.button("검색"):
+if st.button("버스번호 검색"):
     if not name or not phone:
         st.warning("이름과 전화번호를 모두 입력해주세요.")
     else:
         # Supabase에서 데이터 검색
-        result = supabase.table("businfo").select("name, phone, busno")\
-            .eq("name", name).eq("phone", phone).execute()
-
+        result = supabase.table("businfo").select("name, phone, busno").eq("name", name).eq("phone", phone).execute()
         data = result.data
 
         if data:
-            st.success("일치하는 정보를 찾았습니다:")
+            #st.success("일치하는 정보를 찾았습니다:")
             for person in data:
-                st.write(f"이름: {person['name']}")
-                st.write(f"전화번호: {person['phone']}", max_chars=4)
-                st.write(f"버스 번호: {person['busno']}")
+                st.write(f"{person['name']}({person['phone']}) 님 께서는")
+                #st.write(f"전화번호: {person['phone']}", max_chars=4)
+                st.subheader(f"{person['busno']}번 버스에 탑승하세요. ")
         else:
             st.error("일치하는 정보를 찾을 수 없습니다.")
 
