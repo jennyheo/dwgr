@@ -28,7 +28,7 @@ with tab1:
         if st.session_state.answer1 == "예":
             st.info("검사를 받으신 분은 [검사결과참고치] 탭을 눌러 정상/이상여부를 알 수 있습니다.")
             st.divider()
-            st.subheader("2️⃣ 병역처분결과를 선택해주세요")
+            st.subheader("2️⃣ 병역처분결과를 선택하세요")
             col1, col2, col3, col4, col5 = st.columns(5)
             with col1:
                 if st.button("현역병입영대상"):
@@ -86,21 +86,19 @@ with tab1:
     elif st.session_state.answer2 == "사회복무요원":
         st.success(f'공익을 목적으로 국가기관, 지방자치단체, 공공단체 및 사회복지시설에서 사회복지, 보건의료, 교육문화, 환경안전 등의 사회서비스 업무 및 행정업무 등을 지원하는 병역의무의 한 형태입니다.') 
         with st.expander('📢 사회복무요원 제도 안내'):
+            st.markdown("사회복무요원 소집 신청은 본인이 직접 신청하는 본인선택과 신청하지 않은 사람에 대해 주소지 관할 지방병무청장이 소집순서에 따라 일자와 기관을 결정하는 직권통지로 구분됩니다.")
             st.markdown(':blue-background[**대상**]')
             st.markdown('병역판정검사 결과 보충역으로 병역처분된 사람')
             st.markdown(':blue-background[**복무기관**]')
             st.markdown('국가기관, 지방자치단체, 공공단체 및 사회복지시설')
             st.markdown(':blue-background[**복무분야**]')
             st.markdown('사회복지, 보건의료, 교육문화, 환경안전 등의 사회서비스 업무 및 행정업무 등의 지원업무')
-            st.markdown(':blue-background[**복무기간**]')
-            st.markdown('21개월')
-            st.markdown(':blue-background[**복무형태**]')
-            st.markdown('출·퇴근 근무하며 소속기관장의 지휘감독을 받음')
+            st.markdown(':blue-background[**복무기간 및 복무형태**]')
+            st.markdown('21개월 / 출·퇴근 근무하며 소속기관장의 지휘감독을 받음')
             st.markdown(':blue-background[**처우**]')
             st.markdown('현역병 봉급 상당액의 보수 및 직무수행에 필요한 여비 등 지급')
         st.divider()
         st.subheader("3️⃣ 소집하기 원하는 방법이 있나요?")
-        st.warning("사회복무요원 소집 신청은 본인이 직접 신청하는 본인선택과 신청하지 않은 사람에 대해 주소지 관할 지방병무청장이 소집순서에 따라 일자와 기관을 결정하는 직권통지로 구분됩니다.")
         col1, col2, col3 = st.columns(3)
         with col1:
             if st.button("소집일자 및 복무기관 본인선택"):
@@ -206,7 +204,15 @@ with tab1:
             st.link_button("병역진로설계 상담신청 안내➡️", "https://www.mma.go.kr/byjr/01/bYJRContents.do?mc=mma0002535")               
             st.markdown(':blue[_※ 병역판정검사를 받지 않은 사람도 온라인서비스 신청 가능_]')
 
-
+    if st.session_state.answer2 == "현역병입영대상" :
+          st.divider()
+          st.markdown(f"#### 🎯 현역(모집)병 안내 전체 내려받기")
+          with open("downloadfile.pdf", "rb") as pdf_file:
+               PDFbyte = pdf_file.read()
+               st.download_button(label="⭐ 현역(모집)병 입영안내 다운로드(PDF)",
+                    data=PDFbyte,
+                    file_name="현역(모집)병입영안내.pdf",
+                    mime='application/octet-stream')
         
 with tab2:
 
@@ -390,9 +396,7 @@ with tab3:
 
 
 st.divider()
+st.markdown("💬 본인선택 대상 및 시기, 모집병 자격조건 등 자세한 사항은 병무청 누리집을 확인하시기 바랍니다.")
 st.markdown("""<div style="text-align: right;"><a href="#top" style="text-decoration-line:none;font-size:25pt;"> 🔝</a></div>""", unsafe_allow_html=True)
 st.markdown('**강원지방병무청** (_Updated on 2025. 4. 11._)')
 
-
-st.markdown("---")
-st.markdown("💬 본인선택, 모집병 세부 자격조건 등은 병무청 누리집을 확인하시기 바랍니다.")
