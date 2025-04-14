@@ -1,5 +1,18 @@
 import streamlit as st
 
+st.set_page_config(
+     page_title="병역이행안내"
+     , page_icon="💎"
+)
+
+st.subheader('병역처분결과를 설명해드립니다')
+st.markdown("""<a id="top"></a>""", unsafe_allow_html=True)
+
+with st.expander('😄 알려드립니다'):
+  st.write('병역판정검사(입영판정검사) 결과지 내용에 대해 궁금한 사항을 안내합니다.')
+  st.image('https://mma.go.kr/download/visual/CAIS_HPIS_202412020402149250.jpg', width=250)
+
+
 # 세션 상태 초기화
 for key in ["answer1", "answer2", "answer3", "answer4", "answer5"]:
     if key not in st.session_state:
