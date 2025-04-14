@@ -199,7 +199,7 @@ with tab1:
 
     elif st.session_state.answer3 == "모름":
         st.success("소집신청을 하지 않은 사람은 주소지 관할 지방병무청장이 소집순서에 따라 직권으로 소집하게 됩니다.")
-        st.link_button("소집일자 및 복무기관 결정➡️", "https://mma.go.kr/contents.do?mc=mma0000745")
+        st.link_button("소집일자 및 복무기관 결정➡️", "https://mma.go.kr/contents.do?mc=mma0000744")
 
     if (st.session_state.answer3  == "모집" or st.session_state.answer3 =="직권" or st.session_state.answer1 == "아니오") :
         st.error("군특기 추천·상담과 군생활 정보, 전역후 진로까지 상담받으세요.")
