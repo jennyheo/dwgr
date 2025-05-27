@@ -25,12 +25,3 @@ if st.button("조회하기"):
             st.warning("일치하는 정보가 없습니다.")
 
 
-
-# 숫자만 허용
-if phone and not phone.isdigit():
-    st.warning("전화번호는 숫자만 입력해주세요.")
-
-
-if res.data:
-    busnos = [item['busno'] for item in res.data]
-    st.success(f"당신의 버스번호는: {', '.join(busnos)}")
