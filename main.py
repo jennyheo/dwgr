@@ -11,11 +11,26 @@ supabase: Client = create_client(url, key)
 # UI 예시
 st.title("버스번호 조회")
 name = st.text_input("이름")
-phone = st.text_input("전화번호 뒷자리")
+phone = st.text_input("전화번호 뒷자리 (숫자 4자리)", max_chars=4)
+
 
 if st.button("조회하기"):
-    res = supabase.table("busno").select("busno").eq("name", name).eq("phone", phone).execute()
-    if res.data:
-        st.success(f"당신의 버스번호는: {res.data[0]['busno']}")
+    if not name or not phone:
+        st.warning("이름과 전화번호를 모두 입력해주세요.")
     else:
-        st.warning("일치하는 정보가 없습니다.")
+        res = supabase.table("busno").select("busno").eq("name", name).eq("phone", phone).execute()
+        if res.data:
+            st.success(f"당신의 버스번호는: {res.data[0]['busno']}")
+        else:
+            st.warning("일치하는 정보가 없습니다.")
+
+
+
+# 숫자만 허용
+if phone and not phone.isdigit():
+    st.warning("전화번호는 숫자만 입력해주세요.")
+
+
+if res.data:
+    busnos = [item['busno'] for item in res.data]
+    st.success(f"당신의 버스번호는: {', '.join(busnos)}")
