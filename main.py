@@ -9,7 +9,7 @@ key = st.secrets["supabase"]["key"]
 supabase: Client = create_client(url, key)
 
 # UI 예시
-st.title("🚌 동원훈련 탑승 버스번호 조회")
+st.title("🚌 동원훈련 버스정보 조회")
 name = st.text_input("이름")
 phone = st.text_input("전화번호 뒷자리 (숫자 4자리)", max_chars=4)
 
@@ -20,7 +20,7 @@ if st.button("조회하기"):
     else:
         res = supabase.table("businfo").select("busno").eq("name", name).eq("phone", phone).execute()
         if res.data:
-            st.success(f"['name']님께서 탑승하실 버스는 {res.data[0]['busno']} 번 버스 입니다.")
+            st.success(f"{'name'}님께서 탑승하실 버스는 {res.data[0]['busno']} 번 버스 입니다.")
         else:
             st.warning("일치하는 정보가 없습니다.")
 
