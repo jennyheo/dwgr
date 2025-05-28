@@ -10,7 +10,7 @@ supabase: Client = create_client(url, key)
 
 # UI 예시
 st.subheader('🚌 동원훈련 버스정보 조회')
-name = st.text_input("이름")
+name = st.text_input("이름").replace(" ", "")  # 공백 제거
 phone = st.text_input("전화번호 뒷자리 (숫자 4자리)", max_chars=4)
 
 
