@@ -20,7 +20,7 @@ if st.button("조회하기"):
         res = supabase.table("businfo").select("busno").eq("name", name).eq("phone", phone).execute()
         #irno = res.data[0]['irno']
         if res.data:
-            st.success(f"당신의 버스번호는: {res.data[0]['busno']}")
+            st.success(f"당신의 버스번호는: {res.data[0]['busno']} {res.data[0]['irno']}")
 
         else:
             st.warning("일치하는 정보가 없습니다.")
