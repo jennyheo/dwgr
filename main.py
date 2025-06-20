@@ -17,7 +17,7 @@ if st.button("조회하기"):
     if not name or not phone:
         st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
     else:
-        res = supabase.table("businfo").select("busno, irno").eq("name", name).eq("phone", phone).execute()
+        res = supabase.table("businfo").select("busno,irno").eq("name", name).eq("phone", phone).execute()
         #irno = res.data[0]['irno']
         if res.data:
             st.success(f"당신의 버스번호는: {res.data[0]['busno']} {res.data[0]['irno']}")
