@@ -26,6 +26,10 @@ if st.button("조회하기"):
         busno = res.data[0]['busno']
         irno = res.data[0]['irno']
         st.json(res.data)
+
+        st.write("DEBUG:", res)       # 전체 응답 구조 확인
+        st.write("DEBUG:", res.data)  # 데이터 부분만 출력
+
         if res.data:
             st.success(f"당신의 버스번호는: {busno} {irno}")
 
