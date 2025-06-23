@@ -24,7 +24,7 @@ if st.button("조회하기"):
         busno = res.data[0]['busno']
         irno = res.data[0]['irno']
         if res.data:
-            st.success(f"{name}님의 승차하실 버스번호는: {busno} 입니다.")
+            st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
         else:
             st.warning("일치하는 정보가 없습니다.")
 
