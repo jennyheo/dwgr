@@ -26,7 +26,9 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
 else:
     st.write("kkk1 is None or not set!")
 
-st.write(st.session_state['kkk1'])
+
+if 'kkk1' in st.session_state :
+    st.write(st.session_state['kkk1'])
 
 
 
