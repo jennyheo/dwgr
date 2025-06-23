@@ -25,6 +25,14 @@ if st.button("조회하기"):
         irno = res.data[0]['irno']
         if res.data:
             st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
+
+        #조회가 성공적일때만 비상연락처를 입력한다.
+        if st.button("비상연락처 입력하기"):
+        in_with = st.text_input("관계")
+        in_phone2 = st.text_input("전화번호", min_chars=11, max_chars=13)
+            
         else:
             st.warning("일치하는 정보가 없습니다.")
+            
 
+    
