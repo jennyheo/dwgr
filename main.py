@@ -29,6 +29,7 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     inphone2 = st.text_input("전화번호", max_chars=13)
 
     st.markdown('위의 개인정보 수집·이용에 대한 동의를 거부할 권리가 있으나 동의를 거부할 경우 비상사고 대응에 제한을 받을 수 있습니다.')
+    st.markdown('연락처를 저장하기 전에 먼저 연락처 당사자에게 알려주시고 동의여부를 파악해주세요')
 
     #st.markdown('연락처 당사자의 동의를 받으셨습니까')
     agree1 = st.checkbox("연락처 당사자의 동의를 받으셨습니까?")
