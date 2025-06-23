@@ -42,8 +42,8 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     #if st.button("비상연락처 입력하기"):
     inwith = st.text_input("관계")
     inphone2 = st.text_input("전화번호", min_chars=11, max_chars=13)
-        if not inwith or not inphone2:
-            st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
+    if not inwith or not inphone2:
+        st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
 else:
     st.write("kkk1 is None or not set!")
     
