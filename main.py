@@ -43,7 +43,7 @@ if st.button("조회하기"):
                 st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
 
     
-if st.session_state.kkk1:
+if 'kkk1' in st.session_state and st.session_state.kkk1 is not None: :
     st.write(st.session_state['kkk1'])
 
     
