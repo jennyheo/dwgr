@@ -44,4 +44,6 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
         st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
 else:
     st.write("kkk1 is None or not set!")
+
+st.write(st.session_state['kkk1'])
     
