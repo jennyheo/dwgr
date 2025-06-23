@@ -9,10 +9,6 @@ key = st.secrets["supabase"]["key"]
 supabase: Client = create_client(url, key)
 
 # UI 예시
-st.title("버스번호 조회")
-name = st.text_input("이름")
-phone = st.text_input("전화번호 뒷자리 (4자리)", max_chars=4)
-
 
 #리런한 이후에는 여기를 보여주기
 if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
@@ -24,6 +20,9 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     if not inwith or not inphone2:
         st.error("본인과의 관계 및 전화번호를 모두 입력해주세요.")
 else:
+    st.title("버스번호 조회")
+    name = st.text_input("이름")
+    phone = st.text_input("전화번호 뒷자리 (4자리)", max_chars=4)
     if st.button("조회하기"):
         st.session_state['kkk1'] = ''
         st.write(name, phone) 
