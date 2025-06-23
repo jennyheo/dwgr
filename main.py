@@ -22,7 +22,7 @@ if st.button("조회하기"):
 
 
         try:
-            res = supabase.table("businfo").select("busno,irno").eq("name", name).eq("phone", phone).execute()
+            res = supabase.table("businfo").select("busno").eq("name", name).eq("phone", phone).execute()
             st.write(res)
         except Exception as e:
             st.error(f"에러 발생: {e}")
