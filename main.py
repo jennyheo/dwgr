@@ -34,7 +34,7 @@ if 'kkk1' not in st.session_state or st.session_state['kkk1'] is None:
                     st.session_state['kkk1'] = irno
                     st.session_state['kkk2'] = name
                     #st.write(st.session_state['kkk1'])
-                    #st.rerun() #리런한다
+                    st.rerun() #리런한다
             else:
                 st.warning("일치하는 정보가 없습니다.")
 else:
