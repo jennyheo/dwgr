@@ -28,21 +28,19 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     inwith = st.selectbox('관계',['본인과의 관계를 선택하세요','부모님','친척','친구','지인','기타'])
     inphone2 = st.text_input("전화번호", max_chars=13)
 
-    st.markdown('위의 개인정보 수집·이용에 대한 동의를 거부할 권리가 있으나 동의를 거부할 경우 비상사고 대응에 재한을 받을 수 있습니다.')
+    st.markdown('위의 개인정보 수집·이용에 대한 동의를 거부할 권리가 있으나 동의를 거부할 경우 비상사고 대응에 제한을 받을 수 있습니다.')
 
-    st.markdown('연락처 당사자의 동의를 먼저 받도록 안내하거나 문서화')
+    #st.markdown('연락처 당사자의 동의를 받으셨습니까')
+    agree1 = st.checkbox("연락처 당사자의 동의를 받으셨습니까?")
 
-    # 체크박스 생성
-    agree = st.checkbox("연락처 저장에 동의하십니까.")
-
-    # 체크박스 선택 여부에 따라 다른 메시지 출력
-    if agree:
-        if st.button("저장하기"):
-            if not inwith or not inphone2:
-                st.error("본인과의 관계 및 전화번호를 모두 입력해주세요.")
-    else:
-        st.write("동의하셔야 저장됩니다")   
-
+    if agree1:
+        agree2 = st.checkbox("연락처 저장에 동의하십니까?")
+        if agree2:
+            if st.button("저장하기"):
+                if not inwith or not inphone2:
+                    st.error("본인과의 관계 및 전화번호를 모두 입력해주세요.")
+        else:
+            st.write("동의하셔야 저장됩니다")   
 
 else:
     st.title("🚍 동원훈련 버스정보 조회")
