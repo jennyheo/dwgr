@@ -45,7 +45,7 @@ else:
     st.divider()
     #st.write(st.session_state['kkk1'])
     #st.write(st.session_state['kkk2'])
-    st.write(f"{st.session_state['kkk1']}님의 비상연락처를 입력합니다")
+    st.write(f"{st.session_state['kkk2']}님의 비상연락처를 입력합니다")
     #if st.button("비상연락처 입력하기"):
     inwith = st.text_input("관계")
     inphone2 = st.text_input("전화번호", max_chars=13)
