@@ -27,10 +27,11 @@ if st.button("조회하기"):
         irno = res.data[0]['irno']
         if res.data:
             st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
-            st.session_state['kkk1'] = irno
-            st.session_state['kkk2'] = name
-            #st.write(st.session_state['kkk1'])
-            st.rerun() #리런한다
+            if st.button("비상연락처 입력하기"):
+                st.session_state['kkk1'] = irno
+                st.session_state['kkk2'] = name
+                #st.write(st.session_state['kkk1'])
+                st.rerun() #리런한다
         else:
             st.warning("일치하는 정보가 없습니다.")
 
