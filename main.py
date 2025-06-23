@@ -19,31 +19,13 @@ if st.button("조회하기"):
     if not name or not phone:
         st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
     else:
-        try:
-            res = supabase.table("businfo").select("busno,irno").eq("name", name).eq("phone", phone).execute()
-            st.write("DEBUG: res =", res)
-            st.write("DEBUG: res.data =", res.data)
-            st.write("DEBUG: len(res.data) =", len(res.data) if res.data else None)
-    
-        except Exception as e:
-            st.error(f"Exception: {e}")
-
-
-        
         res = supabase.table("businfo").select("busno, irno").eq("name", name).eq("phone", phone).execute()
         st.write(res)
         #irno = res.data[0]['irno']
-
         busno = res.data[0]['busno']
         irno = res.data[0]['irno']
-        st.json(res.data)
-
-        st.write("DEBUG:", res)       # 전체 응답 구조 확인
-        st.write("DEBUG:", res.data)  # 데이터 부분만 출력
-
         if res.data:
             st.success(f"당신의 버스번호는: {busno} {irno}")
-
         else:
             st.warning("일치하는 정보가 없습니다.")
 
