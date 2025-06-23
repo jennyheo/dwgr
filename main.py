@@ -15,8 +15,8 @@ phone = st.text_input("전화번호 뒷자리 (4자리)", max_chars=4)
 
 
 if st.button("조회하기"):
-    if 'kkk' not in st.session_state:
-        st.session_state['kkk'] = ''
+    if 'kkk1' not in st.session_state:
+        st.session_state['kkk1'] = ''
     st.write(name, phone) 
     if not name or not phone:
         st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
