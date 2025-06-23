@@ -46,7 +46,7 @@ if st.button("조회하기"):
             st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
             if st.button("비상연락처 입력하기"):
                 st.session_state['kkk1'] = irno
-                #st.write(st.session_state['kkk1'])
+                st.write(st.session_state['kkk1'])
                 #st.rerun() #리런한다
         else:
             st.warning("일치하는 정보가 없습니다.")
