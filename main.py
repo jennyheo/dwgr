@@ -24,32 +24,28 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     if not inwith or not inphone2:
         st.error("본인과의 관계 및 전화번호를 모두 입력해주세요.")
 else:
-    st.write("kkk1 is None or not set!")
-
+    if st.button("조회하기"):
+        st.session_state['kkk1'] = ''
+        st.write(name, phone) 
+        if not name or not phone:
+            st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
+        else:
+            res = supabase.table("businfo").select("busno, irno").eq("name", name).eq("phone", phone).execute()
+            #st.write(res) #결과찍어보기
+            busno = res.data[0]['busno']
+            irno = res.data[0]['irno']
+            if res.data:
+                st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
+                if st.button("비상연락처 입력하기"):
+                    st.session_state['kkk1'] = irno
+                    st.write(st.session_state['kkk1'])
+                    #st.rerun() #리런한다
+            else:
+                st.warning("일치하는 정보가 없습니다.")
 
 if 'kkk1' in st.session_state :
     st.write(st.session_state['kkk1'])
 
-
-
-if st.button("조회하기"):
-    st.session_state['kkk1'] = ''
-    st.write(name, phone) 
-    if not name or not phone:
-        st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
-    else:
-        res = supabase.table("businfo").select("busno, irno").eq("name", name).eq("phone", phone).execute()
-        #st.write(res) #결과찍어보기
-        busno = res.data[0]['busno']
-        irno = res.data[0]['irno']
-        if res.data:
-            st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
-            if st.button("비상연락처 입력하기"):
-                st.session_state['kkk1'] = irno
-                st.write(st.session_state['kkk1'])
-                #st.rerun() #리런한다
-        else:
-            st.warning("일치하는 정보가 없습니다.")
 
 
     
