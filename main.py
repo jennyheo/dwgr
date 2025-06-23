@@ -11,7 +11,7 @@ supabase: Client = create_client(url, key)
 # UI 예시
 
 #리런한 이후에는 여기를 보여주기
-if 'kkk1' in st.session_state:
+if 'kkk1' not in st.session_state:
 
     st.title("버스번호 조회")
     st.divider()
