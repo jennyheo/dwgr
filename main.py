@@ -20,8 +20,8 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     #st.write(st.session_state['kkk2'])
     st.write(f"{st.session_state['kkk2']}님의 비상연락처를 입력합니다")
     st.markdown('동원훈련 입영 수송 중 비상시에 연락이 가능한 (본인번호 이외의) 연락처를 입력하세요.')
-    st.markdown('입력하신 관계와 연락처 정보는 안전하게 보관되며 유사시에 대비한 비상연락목적으로만 사용됩니다.')
-    st.markdown('연락처는 2일동안 보관 뒤 파기됩니다.')
+    st.markdown('**입력하신 관계와 연락처 정보**는 안전하게 보관되며 유사시에 대비한 **비상연락 목적으로만** 사용됩니다.')
+    st.markdown('연락처는 **2일동안** 보관 뒤 파기됩니다.')
 
     #if st.button("비상연락처 입력하기"):
     inwith = st.text_input("관계")
