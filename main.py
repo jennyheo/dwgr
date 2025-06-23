@@ -14,20 +14,21 @@ name = st.text_input("이름")
 phone = st.text_input("전화번호 뒷자리 (4자리)", max_chars=4)
 
 
-try:
-    res = supabase.table("businfo").select("busno,irno").eq("name", name).eq("phone", phone).execute()
-    st.write("DEBUG: res =", res)
-    st.write("DEBUG: res.data =", res.data)
-    st.write("DEBUG: len(res.data) =", len(res.data) if res.data else None)
-    ...
-except Exception as e:
-    st.error(f"Exception: {e}")
-    
-
 if st.button("조회하기"):
     if not name or not phone:
         st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
     else:
+        try:
+            res = supabase.table("businfo").select("busno,irno").eq("name", name).eq("phone", phone).execute()
+            st.write("DEBUG: res =", res)
+            st.write("DEBUG: res.data =", res.data)
+            st.write("DEBUG: len(res.data) =", len(res.data) if res.data else None)
+    
+        except Exception as e:
+            st.error(f"Exception: {e}")
+
+
+        
         res = supabase.table("businfo").select("busno, irno").eq("name", name).eq("phone", phone).execute()
         st.write(res)
         #irno = res.data[0]['irno']
