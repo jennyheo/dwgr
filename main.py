@@ -30,6 +30,7 @@ if st.button("조회하기"):
             if st.button("비상연락처 입력하기"):  #입력하기를 누르면
                 st.session_state['kkk1'] = {irno} 
                 st.session_state['kkk2'] = {name}
+                st.write(st.session_state['kkk1'])
                 st.rerun() #리런한다
         else:
             st.warning("일치하는 정보가 없습니다.")
@@ -43,7 +44,7 @@ if st.button("조회하기"):
                 st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
 
     
-if st.session_state['kkk1'] is not None: 
-    st.write(st.session_state['kkk1'])
+#if st.session_state['kkk1'] is not None: 
+    #st.write(st.session_state['kkk1'])
 
     
