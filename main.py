@@ -14,6 +14,8 @@ supabase: Client = create_client(url, key)
 if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     #st.write("kkk1 is not None!")
     #조회가 성공적일때만 비상연락처를 입력한다.
+    st.title("비상연락처 입력하기")
+    st.divider()
     #if st.button("비상연락처 입력하기"):
     inwith = st.text_input("관계")
     inphone2 = st.text_input("전화번호", max_chars=13)
@@ -21,6 +23,7 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
         st.error("본인과의 관계 및 전화번호를 모두 입력해주세요.")
 else:
     st.title("버스번호 조회")
+    st.divider()
     name = st.text_input("이름")
     phone = st.text_input("전화번호 뒷자리 (4자리)", max_chars=4)
     if st.button("조회하기"):
