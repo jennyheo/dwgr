@@ -24,7 +24,8 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     st.markdown('연락처는 **2일동안** 보관 뒤 파기됩니다.')
 
     #if st.button("비상연락처 입력하기"):
-    inwith = st.text_input("관계")
+    #inwith = st.text_input("관계")
+    inwith = st.selectbox('관계',['본인과의 관계를 선택하세요','부모님','친척','친구','지인','기타'])
     inphone2 = st.text_input("전화번호", max_chars=13)
     if st.button("저장하기"):
         if not inwith or not inphone2:
