@@ -30,7 +30,10 @@ if st.button("조회하기"):
             if st.button("비상연락처 입력하기"):
                 inwith = st.text_input("관계")
                 inphone2 = st.text_input("전화번호", min_chars=11, max_chars=13)
-            
+            if not name or not phone:
+                st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
+
+        
         else:
             st.warning("일치하는 정보가 없습니다.")
             
