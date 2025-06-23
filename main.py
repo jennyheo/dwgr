@@ -11,8 +11,22 @@ supabase: Client = create_client(url, key)
 # UI 예시
 
 #리런한 이후에는 여기를 보여주기
-if 'kkk1' not in st.session_state:
+if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
+    #st.write("kkk1 is not None!")
+    #조회가 성공적일때만 비상연락처를 입력한다.
+    st.title("비상연락처 입력하기")
+    st.divider()
+    #st.write(st.session_state['kkk1'])
+    #st.write(st.session_state['kkk2'])
+    st.write(f"{st.session_state['kkk2']}님의 비상연락처를 입력합니다")
+    #if st.button("비상연락처 입력하기"):
+    inwith = st.text_input("관계")
+    inphone2 = st.text_input("전화번호", max_chars=13)
+    if st.button("저장하기"):
+        if not inwith or not inphone2:
+            st.error("본인과의 관계 및 전화번호를 모두 입력해주세요.")
 
+else:
     st.title("버스번호 조회")
     st.divider()
     name = st.text_input("이름")
@@ -38,20 +52,6 @@ if 'kkk1' not in st.session_state:
                     st.rerun() #리런한다
             else:
                 st.warning("일치하는 정보가 없습니다.")
-else:
-    #st.write("kkk1 is not None!")
-    #조회가 성공적일때만 비상연락처를 입력한다.
-    st.title("비상연락처 입력하기")
-    st.divider()
-    #st.write(st.session_state['kkk1'])
-    #st.write(st.session_state['kkk2'])
-    st.write(f"{st.session_state['kkk2']}님의 비상연락처를 입력합니다")
-    #if st.button("비상연락처 입력하기"):
-    inwith = st.text_input("관계")
-    inphone2 = st.text_input("전화번호", max_chars=13)
-    if st.button("저장하기"):
-        if not inwith or not inphone2:
-            st.error("본인과의 관계 및 전화번호를 모두 입력해주세요.")
 
 if 'kkk1' in st.session_state :
     st.write(st.session_state['kkk1'])
