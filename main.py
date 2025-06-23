@@ -27,9 +27,19 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     #inwith = st.text_input("관계")
     inwith = st.selectbox('관계',['본인과의 관계를 선택하세요','부모님','친척','친구','지인','기타'])
     inphone2 = st.text_input("전화번호", max_chars=13)
-    if st.button("저장하기"):
-        if not inwith or not inphone2:
-            st.error("본인과의 관계 및 전화번호를 모두 입력해주세요.")
+
+
+    # 체크박스 생성
+    agree = st.checkbox("연락처 저장에 동의하십니까.")
+
+    # 체크박스 선택 여부에 따라 다른 메시지 출력
+    if agree:
+        if st.button("저장하기"):
+            if not inwith or not inphone2:
+                st.error("본인과의 관계 및 전화번호를 모두 입력해주세요.")
+    else:
+        st.write("동의하지 않으셨습니다.")   
+
 
 else:
     st.title("🚍 동원훈련 버스정보 조회")
