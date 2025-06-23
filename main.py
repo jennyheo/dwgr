@@ -29,7 +29,7 @@ if 'kkk1' not in st.session_state:
             busno = res.data[0]['busno']
             irno = res.data[0]['irno']
             if res.data:
-                st.success(f"{name}님께서 승차하실 버스번호는 {busno} {irno} 입니다.")
+                st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
                 st.session_state['kkk1'] = irno
                 st.session_state['kkk2'] = name
                 #st.write(st.session_state['kkk1'])
