@@ -20,8 +20,7 @@ if st.button("조회하기"):
         st.error("이름과 전화번호 뒷자리를 모두 입력해주세요.")
     else:
         res = supabase.table("businfo").select("busno, irno").eq("name", name).eq("phone", phone).execute()
-        st.write(res)
-        #irno = res.data[0]['irno']
+        #st.write(res) #결과찍어보기
         busno = res.data[0]['busno']
         irno = res.data[0]['irno']
         if res.data:
