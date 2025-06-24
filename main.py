@@ -38,8 +38,32 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
         agree2 = st.checkbox("연락처 저장에 동의하십니까?")
         if agree2:
             if st.button("저장하기"):
-                if not inwith or not inphone2:
+                #if not inwith or not inphone2:
+                    #st.error("본인과의 관계 및 전화번호를 모두 입력해주세요.")
+
+
+
+
+                if not inwith or not inphone2 or inwith == '본인과의 관계를 선택하세요':
                     st.error("본인과의 관계 및 전화번호를 모두 입력해주세요.")
+                else:
+                    try:
+                        response = supabase.table("businfo") \
+                            .update({
+                                "with": inwith,
+                                "phone2": inphone2,
+                                "ins_dtm": datetime.now().isoformat()
+                            }) \
+                            .eq("irno", st.session_state['kkk1']) \
+                            .execute()
+                        
+                        if response.data:
+                            st.success("비상연락처가 성공적으로 업데이트되었습니다!")
+                        else:
+                            st.warning("해당 사용자의 정보가 존재하지 않아 업데이트할 수 없습니다.")
+                    except Exception as e:
+                        st.error(f"업데이트 중 오류가 발생했습니다: {e}")
+        
         else:
             st.write("동의하셔야 저장됩니다")   
 
