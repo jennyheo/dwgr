@@ -19,8 +19,8 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
 
     res = supabase.table("businfo").select("name").eq("irno", st.session_state['kkk1']).execute()
     #st.write(res) #결과찍어보기
-    busno = res.data[0]['busno']
-    irno = res.data[0]['irno']
+    #busno = res.data[0]['busno']
+    #irno = res.data[0]['irno']
     if res.data:
         #st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
         #st.session_state['kkk1'] = irno
