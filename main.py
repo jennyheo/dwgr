@@ -15,7 +15,7 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     #조회가 성공적일때만 비상연락처를 입력한다.
     st.title("🚨 비상연락처 입력하기")
     st.divider()
-    st.write(st.session_state['kkk1'])
+    #st.write(st.session_state['kkk1'])
     #st.write(st.session_state['kkk2'])
     st.write(f"📝 {st.session_state['kkk2']}님의 비상연락처를 입력합니다")
     st.markdown('🚑 동원훈련 입영 수송 중 비상시에 연락이 가능한 (**본인번호 이외의**) 연락처를 입력하세요.')
