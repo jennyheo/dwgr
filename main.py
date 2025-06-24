@@ -81,7 +81,7 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
                             }) \
                             .eq("irno", st.session_state['kkk1']) \
                             .execute()
-                            st.write("확인결과:", response.data)
+                        st.write("확인결과:", response.data)
                         if response.data:
                             st.success("비상연락처가 성공적으로 업데이트되었습니다!")
                         else:
