@@ -17,18 +17,18 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     st.divider()
     st.write(st.session_state['kkk1'])
     #st.write(st.session_state['kkk2'])
-    st.write(f"{st.session_state['kkk2']}님의 비상연락처를 입력합니다")
-    st.markdown('동원훈련 입영 수송 중 비상시에 연락이 가능한 (**본인번호 이외의**) 연락처를 입력하세요.')
-    st.markdown('**입력하신 관계와 연락처 정보**는 안전하게 보관되며 유사시에 대비한 **비상연락 목적으로만** 사용됩니다.')
-    st.markdown('연락처는 **2일동안** 보관 뒤 파기됩니다.')
+    st.write(f"📝 {st.session_state['kkk2']}님의 비상연락처를 입력합니다")
+    st.markdown('🚑 동원훈련 입영 수송 중 비상시에 연락이 가능한 (**본인번호 이외의**) 연락처를 입력하세요.')
+    st.markdown('🔒 **입력하신 관계와 연락처 정보**는 안전하게 보관되며 유사시에 대비한 **비상연락 목적으로만** 사용됩니다.')
+    st.markdown('⏰ 연락처는 **2일동안** 보관 뒤 파기됩니다.')
 
     #if st.button("비상연락처 입력하기"):
     #inwith = st.text_input("관계")
     inwith = st.selectbox('관계',['본인과의 관계를 선택하세요','부모님','친척','친구','지인','기타'])
     inphone = st.text_input("전화번호", max_chars=13)
 
-    st.markdown('위의 개인정보 수집·이용에 대한 동의를 거부할 권리가 있으나 동의를 거부할 경우 비상사고 대응에 제한을 받을 수 있습니다.')
-    st.markdown('연락처를 저장하기 전에 먼저 연락처 당사자에게 알려주시고 동의여부를 파악해주세요')
+    st.markdown('✔️ 위의 개인정보 수집·이용에 대한 동의를 거부할 권리가 있으나 동의를 거부할 경우 비상사고 대응에 제한을 받을 수 있습니다.')
+    st.markdown('✔️ 연락처를 저장하기 전에 먼저 연락처 당사자에게 알려주시고 동의여부를 파악해주세요')
 
     #st.markdown('연락처 당사자의 동의를 받으셨습니까')
     agree1 = st.checkbox("연락처 당사자의 동의를 받으셨습니까?")
