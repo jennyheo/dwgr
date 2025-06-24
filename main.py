@@ -13,7 +13,7 @@ supabase: Client = create_client(url, key)
 #리런한 이후에는 여기를 보여주기
 if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     #조회가 성공적일때만 비상연락처를 입력한다.
-    st.title("🚨 비상연락처 입력하기")
+    st.subheader("🚨 비상연락처 입력하기")
     st.divider()
     #st.write(st.session_state['kkk1'])
     #st.write(st.session_state['kkk2'])
@@ -68,7 +68,7 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
             st.write("동의하셔야 저장됩니다")   
 
 else:
-    st.title("🚍 동원훈련 버스정보 조회")
+    st.subheader("🚍 동원훈련 버스정보 조회")
     st.divider()
     name = st.text_input("이름")
     phone = st.text_input("전화번호 뒷자리 (4자리)", max_chars=4)
