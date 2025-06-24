@@ -12,6 +12,30 @@ supabase: Client = create_client(url, key)
 
 #리런한 이후에는 여기를 보여주기
 if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
+
+
+
+
+
+    res = supabase.table("businfo").select("name").eq("irno", st.session_state['kkk1']).execute()
+    #st.write(res) #결과찍어보기
+    busno = res.data[0]['busno']
+    irno = res.data[0]['irno']
+    if res.data:
+        #st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
+        #st.session_state['kkk1'] = irno
+        #st.session_state['kkk2'] = name
+        
+        st.write(st.session_state['kkk1'])
+        st.write(res.data[0]['name'])
+        
+    else:
+        st.warning("일치하는 정보가 없습니다.")
+
+
+
+
+
     #st.write("kkk1 is not None!")
     #조회가 성공적일때만 비상연락처를 입력한다.
     st.title("🚨 비상연락처 입력하기")
