@@ -44,7 +44,7 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
 
 
 
-                if not inwith or not inphone2 or inwith == '본인과의 관계를 선택하세요':
+                if not inwith or not inphone or inwith == '본인과의 관계를 선택하세요':
                     st.error("본인과의 관계 및 전화번호를 모두 입력해주세요.")
                 else:
                     try:
