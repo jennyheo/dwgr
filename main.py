@@ -26,7 +26,7 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
     #if st.button("비상연락처 입력하기"):
     #inwith = st.text_input("관계")
     inwith = st.selectbox('관계',['본인과의 관계를 선택하세요','부모님','친척','친구','지인','기타'])
-    inphone2 = st.text_input("전화번호", max_chars=13)
+    inphone = st.text_input("전화번호", max_chars=13)
 
     st.markdown('위의 개인정보 수집·이용에 대한 동의를 거부할 권리가 있으나 동의를 거부할 경우 비상사고 대응에 제한을 받을 수 있습니다.')
     st.markdown('연락처를 저장하기 전에 먼저 연락처 당사자에게 알려주시고 동의여부를 파악해주세요')
@@ -50,9 +50,9 @@ if 'kkk1' in st.session_state and st.session_state['kkk1'] is not None:
                     try:
                         response = supabase.table("businfo") \
                             .update({
-                                "with": inwith,
-                                "phone2": inphone2,
-                                "ins_dtm": datetime.now().isoformat()
+                                "inwith": inwith,
+                                "inphone": inphone,
+                                "upd_dtm": datetime.now().isoformat()
                             }) \
                             .eq("irno", st.session_state['kkk1']) \
                             .execute()
