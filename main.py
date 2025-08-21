@@ -8,7 +8,7 @@ url = st.secrets["supabase"]["url"]
 key = st.secrets["supabase"]["key"]
 supabase: Client = create_client(url, key)
 
-st.subheader("🚍 동원훈련 버스정보 조회")
+st.subheader("🚍 동원훈련버스 탑승정보 조회")
 st.divider()
 name = st.text_input("이름")
 phone = st.text_input("전화번호 뒷자리 (4자리)", max_chars=4)
