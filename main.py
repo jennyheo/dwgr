@@ -30,7 +30,7 @@ if st.button("버스정보 조회하기"):
 
             res = (supabase.table("businfo")
               .select("*")
-               .like("name", f"{first_char}_{third_char}%")
+               .like("name", f"{first_char}_{third_char}")
                .eq("phone", phone3)
                .execute())
         elif len(name) == 2:
@@ -38,7 +38,7 @@ if st.button("버스정보 조회하기"):
             third_char = "O"
             res = (supabase.table("businfo")
               .select("*")
-               .like("name", f"{first_char}{third_char}%")
+               .like("name", f"{first_char}{third_char}")
                .eq("phone", phone3)
                .execute())
         else:
