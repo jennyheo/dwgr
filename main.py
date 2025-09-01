@@ -30,13 +30,12 @@ if st.button("버스정보 조회하기"):
            .like("name", f"{first_char}_{third_char}%")
            .eq("phone", phone3)
            .execute())
-        
-        if res.data:
-            busno = res.data[0]['busno']
-            irno = res.data[0]['irno']
-            st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
-        else:
+        if not res.data:
             st.warning("일치하는 정보가 없습니다.")
-
-
+        elif len(res.data) > 1:
+            st.error("동일한 조건으로 조회된 데이터가 여러 개 있습니다. 직원에게 문의하세요.")
+        else:
+            busno = res.data[0]["busno"]
+            irno = res.data[0]["irno"]
+             st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
     
