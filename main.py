@@ -27,11 +27,10 @@ if st.button("버스정보 조회하기"):
             third_char = name[2]
         elif len(name) = 2:
             first_char = name[0]
-            third_char = 'O'
+            third_char = "O"
         else:
             print("이름을 다시 입력해주세요")
-        #first_char = name[0]        
-        #third_char = name[2]
+
         phone3=phone[-3:]
         #res = supabase.table("businfo").select("busno, irno").eq("name", name).eq("phone", phone).execute()
         
