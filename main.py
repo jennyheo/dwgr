@@ -33,7 +33,7 @@ if st.button("버스정보 조회하기"):
         if not res.data:
             st.warning("일치하는 정보가 없습니다.")
         elif len(res.data) > 1:
-            st.error("동일한 조건으로 조회된 데이터가 여러 개 있습니다. 직원에게 문의하세요.")
+            st.error("중복 데이터가 있습니다. 직원에게 문의하세요.")
         else:
             busno = res.data[0]["busno"]
             irno = res.data[0]["irno"]
