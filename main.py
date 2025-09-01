@@ -22,7 +22,7 @@ if st.button("버스정보 조회하기"):
     else:
         first_char = name[0]
         third_char = name[2]
-        phone2=phone[-3:]
+        phone3=phone[-3:]
         #res = supabase.table("businfo").select("busno, irno").eq("name", name).eq("phone", phone).execute()
         
         res = (supabase.table("businfo")
