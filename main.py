@@ -36,6 +36,5 @@ if st.button("버스정보 조회하기"):
             st.error("중복 데이터가 있습니다. 직원에게 문의하세요.")
         else:
             busno = res.data[0]["busno"]
-            irno = res.data[0]["irno"]
             st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
     
