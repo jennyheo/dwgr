@@ -25,7 +25,7 @@ if st.button("버스정보 조회하기"):
         if len(name) >= 3:
             first_char = name[0]
             third_char = name[2]
-        elif len(name) = 2:
+        elif len(name) == 2:
             first_char = name[0]
             third_char = "O"
         else:
