@@ -44,6 +44,7 @@ notice = """
 - 개인정보 보호를 위해 불필요한 정보는 저장되지 않으며 익명으로 처리됩니다.
 - 문제가 발생하면 직원에게 문의하세요.  
 """
+st.divider()
+st.markdown(notice)
 
-st.info(notice)
     
