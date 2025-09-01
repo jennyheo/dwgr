@@ -22,23 +22,28 @@ if st.button("버스정보 조회하기"):
     elif len(phone) != 4:
         st.error("전화번호 뒷자리는 4자리로 입력해주세요.")
     else:
+        phone3=phone[-3:]
+        
         if len(name) >= 3:
             first_char = name[0]
             third_char = name[2]
+
+            res = (supabase.table("businfo")
+              .select("*")
+               .like("name", f"{first_char}_{third_char}%")
+               .eq("phone", phone3)
+               .execute())
         elif len(name) == 2:
             first_char = name[0]
             third_char = "O"
+            res = (supabase.table("businfo")
+              .select("*")
+               .like("name", f"{first_char}{third_char}%")
+               .eq("phone", phone3)
+               .execute())
         else:
             print("이름을 다시 입력해주세요")
 
-        phone3=phone[-3:]
-        #res = supabase.table("businfo").select("busno, irno").eq("name", name).eq("phone", phone).execute()
-        
-        res = (supabase.table("businfo")
-           .select("*")
-           .like("name", f"{first_char}_{third_char}%")
-           .eq("phone", phone3)
-           .execute())
         if not res.data:
             st.warning("일치하는 정보가 없습니다.")
         elif len(res.data) > 1:
