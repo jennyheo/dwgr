@@ -37,5 +37,5 @@ if st.button("버스정보 조회하기"):
         else:
             busno = res.data[0]["busno"]
             irno = res.data[0]["irno"]
-             st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
+            st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
     
