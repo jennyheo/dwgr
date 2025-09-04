@@ -57,7 +57,7 @@ if st.button("버스정보 조회하기"):
                         {name}님께서 승차하실 버스번호는
                     </span>
                     <span style='font-size:35px; font-weight:bold; color:#0b5394;'>
-                        {busno}
+                        {busno} ~ 91번
                     </span>
                     <span style='font-size:16px; color:#155724;'>
                         입니다.
