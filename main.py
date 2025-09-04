@@ -56,7 +56,7 @@ if st.button("버스정보 조회하기"):
                     <span style='font-size:16px; color:#155724;'>
                         {name}님께서 승차하실 버스번호는
                     </span>
-                    <span style='font-size:28px; font-weight:bold; color:#0b5394;'>
+                    <span style='font-size:35px; font-weight:bold; color:#0b5394;'>
                         {busno}
                     </span>
                     <span style='font-size:16px; color:#155724;'>
