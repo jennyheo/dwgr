@@ -52,7 +52,7 @@ if st.button("버스정보 조회하기"):
             busno = res.data[0]["busno"]
             #st.success(f"{name}님께서 승차하실 버스번호는 {busno} 입니다.")
             st.success(f"{name}님께서 승차하실 버스번호는")
-            st.title("{busno}")
+            st.title(f"{busno}")
             st.success(f"입니다")
             
 notice = """
