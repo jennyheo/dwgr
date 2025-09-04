@@ -58,7 +58,7 @@ if st.button("버스정보 조회하기"):
                     </span>
                     <span style='font-size:35px; font-weight:bold; color:#0b5394;'>
                         {busno} ~ 91번
-                    </span>
+                    </span><br>
                     <span style='font-size:16px; color:#155724;'>
                         입니다.
                     </span>
